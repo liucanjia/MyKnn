@@ -25,8 +25,8 @@ KNN
 |    ├── part-r-00000  //计算结果
 ├── test //测试集文件夹
 |    ├── iris_test_data.csv
-├── train //测试集文件夹
+├── train //训练集文件夹
 |    ├── iris_train.csv
-├── KNN.jar  
+├── KNN.jar   //jar文件包
 ├── KNN.java  //源代码文件
 ├── README.MD  
