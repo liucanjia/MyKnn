@@ -1,32 +1,32 @@
-# »ùÓÚMapreduceµÄKNNÊµÏÖ
+# åŸºäºŽMapreduceçš„KNNå®žçŽ°
 
-## ÏîÄ¿½éÉÜ
+## é¡¹ç›®ä»‹ç»
 
-- ¸ÃÏîÄ¿ÊµÏÖÁËKNNËã·¨ÔÚHadoopÆ½Ì¨»ùÓÚµÄMapReduceÊµÏÖ¡£
+  è¯¥é¡¹ç›®å®žçŽ°äº†KNNç®—æ³•åœ¨Hadoopå¹³å°åŸºäºŽçš„MapReduceå®žçŽ°ã€‚
 
-  Ê¹ÓÃµÄÊÇÖøÃûµÄð°Î²»¨Êý¾Ý¼¯¡£¾Ý¼¯ÄÚ°üº¬ 3 Àà¹² 30 Ìõ¼ÇÂ¼£¬Ã¿Ìõ¼ÇÂ¼¶¼ÓÐ 4 ÏîÌØÕ÷£¬¿ÉÒÔÍ¨¹ýÕâ4¸öÌØÕ÷Ô¤²âð°Î²»¨»ÜÊôÓÚ£¨iris-setosa, iris-versicolour, iris-virginica£©ÖÐµÄÄÄÒ»Àà±ð¡£
+  ä½¿ç”¨çš„æ˜¯è‘—åçš„é¸¢å°¾èŠ±æ•°æ®é›†ã€‚æ®é›†å†…åŒ…å« 3 ç±»å…± 30 æ¡è®°å½•ï¼Œæ¯æ¡è®°å½•éƒ½æœ‰ 4 é¡¹ç‰¹å¾ï¼Œå¯ä»¥é€šè¿‡è¿™4ä¸ªç‰¹å¾é¢„æµ‹é¸¢å°¾èŠ±å‰å±žäºŽï¼ˆiris-setosa, iris-versicolour, iris-virginicaï¼‰ä¸­çš„å“ªä¸€ç±»åˆ«ã€‚
 
-  ÑµÁ·¼¯ÖÐÊý¾ÝÎª£ºÊôÐÔÖµ1£¬ÊôÐÔÖµ2£¬.......£¬±êÇ©
+  è®­ç»ƒé›†ä¸­æ•°æ®ä¸ºï¼šå±žæ€§å€¼1ï¼Œå±žæ€§å€¼2ï¼Œ.......ï¼Œæ ‡ç­¾
 
-  ²âÊÔ¼¯ÖÐÊý¾ÝÎª£ºÊôÐÔÖµ1£¬ÊôÐÔÖµ2£¬.......£¬ÕýÈ·±êÇ©
+  æµ‹è¯•é›†ä¸­æ•°æ®ä¸ºï¼šå±žæ€§å€¼1ï¼Œå±žæ€§å€¼2ï¼Œ.......ï¼Œæ­£ç¡®æ ‡ç­¾
 
-## ´úÂëË¼Â·£º<br>
-   £¨1£©¼ÆËã²âÊÔÊý¾ÝÓë¸÷¸öÑµÁ·Êý¾ÝÖ®¼äµÄ¾àÀë£»<br>
-   £¨2£©°´ÕÕ¾àÀëµÄµÝÔö¹ØÏµ½øÐÐÅÅÐò£»<br>
-   £¨3£©Ñ¡È¡¾àÀë×îÐ¡µÄK¸öµã(K=3)£»<br>
-   £¨4£©½«Ç°K¸öµãÖÐ³öÏÖ´ÎÊý×î¶àµÄÀà±ð×÷Îª²âÊÔÊý¾ÝµÄ·ÖÀà½á¹û¡£<br>
+## ä»£ç æ€è·¯ï¼š<br>
+   ï¼ˆ1ï¼‰è®¡ç®—æµ‹è¯•æ•°æ®ä¸Žå„ä¸ªè®­ç»ƒæ•°æ®ä¹‹é—´çš„è·ç¦»ï¼›<br>
+   ï¼ˆ2ï¼‰æŒ‰ç…§è·ç¦»çš„é€’å¢žå…³ç³»è¿›è¡ŒæŽ’åºï¼›<br>
+   ï¼ˆ3ï¼‰é€‰å–è·ç¦»æœ€å°çš„Kä¸ªç‚¹(K=3)ï¼›<br>
+   ï¼ˆ4ï¼‰å°†å‰Kä¸ªç‚¹ä¸­å‡ºçŽ°æ¬¡æ•°æœ€å¤šçš„ç±»åˆ«ä½œä¸ºæµ‹è¯•æ•°æ®çš„åˆ†ç±»ç»“æžœã€‚<br>
 
-## ÎÄ¼þ×é³É
+## æ–‡ä»¶ç»„æˆ
 
 ```
 KNN
-©À©¤©¤ img  //ÔËÐÐ½á¹û½ØÍ¼
-©À©¤©¤ output  //´æ·Å½á¹ûÊä³öÎÄ¼þ¼Ð
-|    ©À©¤©¤ part-r-00000  //¼ÆËã½á¹û
-©À©¤©¤ test //²âÊÔ¼¯ÎÄ¼þ¼Ð
-|    ©À©¤©¤ iris_test_data.csv
-©À©¤©¤ train //²âÊÔ¼¯ÎÄ¼þ¼Ð
-|    ©À©¤©¤ iris_train.csv
-©À©¤©¤ KNN.jar  
-©À©¤©¤ KNN.java  //Ô´´úÂëÎÄ¼þ
-©À©¤©¤ README.MD  
+â”œâ”€â”€ img  //è¿è¡Œç»“æžœæˆªå›¾
+â”œâ”€â”€ output  //å­˜æ”¾ç»“æžœè¾“å‡ºæ–‡ä»¶å¤¹
+|    â”œâ”€â”€ part-r-00000  //è®¡ç®—ç»“æžœ
+â”œâ”€â”€ test //æµ‹è¯•é›†æ–‡ä»¶å¤¹
+|    â”œâ”€â”€ iris_test_data.csv
+â”œâ”€â”€ train //æµ‹è¯•é›†æ–‡ä»¶å¤¹
+|    â”œâ”€â”€ iris_train.csv
+â”œâ”€â”€ KNN.jar  
+â”œâ”€â”€ KNN.java  //æºä»£ç æ–‡ä»¶
+â”œâ”€â”€ README.MD  
