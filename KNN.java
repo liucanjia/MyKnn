@@ -70,7 +70,7 @@ public class KNN{
                 for(int j=0; j<curr_test.size(); j++){
                     tmp += (curr_test.get(j) - Float.parseFloat(s[j]))*(curr_test.get(j) - Float.parseFloat(s[j]));
                 }
-                context.write(new Text(Integer.toString(i)), new Text(Double.toString(tmp)+","+label)); //测试样例编号,所有训练集距离&标签                 
+                context.write(new Text(Integer.toString(i)), new Text(Double.toString(tmp)+"&"+label));                
             }
 
         }
@@ -101,7 +101,7 @@ public class KNN{
         {  
             ArrayList<Distance_Label> dis_Label_set = new ArrayList<Distance_Label>();
             for (Text value : values){
-                String[] s = value.toString().split(","); //拆开所有 距离+标签
+                String[] s = value.toString().split("&");
                 Distance_Label tmp = new Distance_Label();
                 tmp.label = s[1];
                 tmp.distance = Float.parseFloat(s[0]);
@@ -141,7 +141,7 @@ public class KNN{
                 else res.put(val.toString(), res.get(val.toString())+1); 
             }  
             //获取次数最多的标签
-            int max = -1;
+            int max = 0;
             String resLabel = "";
             for (String label:res.keySet()){
                 if (max < res.get(label)){
@@ -158,3 +158,4 @@ public class KNN{
         public String label;//标签
     }  
 }
+
